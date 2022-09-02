@@ -28,8 +28,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        print(locations[0].coordinate.latitude)
-        print(locations[0].coordinate.longitude)
+        let location = CLLocationCoordinate2DMake(locations[0].coordinate.latitude, locations[0].coordinate.longitude)
+
+        let region = MKCoordinateRegion(center: location, latitudinalMeters: 0.05, longitudinalMeters: 0.05)
+        
+        mapView.setRegion(region, animated: true)
         
     }
 
