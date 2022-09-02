@@ -15,6 +15,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     var nameArr = [String]()
     var idArr = [UUID]()
     
+    var sendName = ""
+    var sendId: UUID?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,7 +65,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @objc func addBtn(){
-        
+        sendName = ""
         performSegue(withIdentifier: "toMapVC", sender: nil)
         
     }
@@ -75,6 +78,24 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = UITableViewCell()
         cell.textLabel?.text = nameArr[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+        sendName = nameArr[indexPath.row]
+        sendId = idArr[indexPath.row]
+        performSegue(withIdentifier: "toMapVC", sender: nil)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMapVC" {
+            
+            let destinationVC = segue.destination as! MapViewController
+            destinationVC.receiveName = sendName
+            destinationVC.recieveId = sendId
+            
+        }
     }
 
 
