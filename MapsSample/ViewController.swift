@@ -11,6 +11,8 @@ import MapKit
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var noteTextField: UITextField!
     
     var locationManager = CLLocationManager()
     
@@ -40,8 +42,8 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             let annotation = MKPointAnnotation()
             
             annotation.coordinate = coordinatePress
-            annotation.title = "Başlık"
-            annotation.subtitle = "Açıklama"
+            annotation.title = nameTextField.text
+            annotation.subtitle = noteTextField.text
             mapView.addAnnotation(annotation)
         
         }
