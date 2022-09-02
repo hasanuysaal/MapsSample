@@ -9,23 +9,25 @@
 /* Begin PBXBuildFile section */
 		40BDBCA428C228D8004775A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDBCA328C228D8004775A1 /* AppDelegate.swift */; };
 		40BDBCA628C228D8004775A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDBCA528C228D8004775A1 /* SceneDelegate.swift */; };
-		40BDBCA828C228D8004775A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDBCA728C228D8004775A1 /* ViewController.swift */; };
+		40BDBCA828C228D8004775A1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDBCA728C228D8004775A1 /* MapViewController.swift */; };
 		40BDBCAB28C228D8004775A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40BDBCA928C228D8004775A1 /* Main.storyboard */; };
 		40BDBCAE28C228D8004775A1 /* MapsSample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40BDBCAC28C228D8004775A1 /* MapsSample.xcdatamodeld */; };
 		40BDBCB028C228D8004775A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40BDBCAF28C228D8004775A1 /* Assets.xcassets */; };
 		40BDBCB328C228D8004775A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40BDBCB128C228D8004775A1 /* LaunchScreen.storyboard */; };
+		40BDBCBB28C247BB004775A1 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDBCBA28C247BB004775A1 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		40BDBCA028C228D8004775A1 /* MapsSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapsSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40BDBCA328C228D8004775A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40BDBCA528C228D8004775A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		40BDBCA728C228D8004775A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		40BDBCA728C228D8004775A1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		40BDBCAA28C228D8004775A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40BDBCAD28C228D8004775A1 /* MapsSample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MapsSample.xcdatamodel; sourceTree = "<group>"; };
 		40BDBCAF28C228D8004775A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40BDBCB228C228D8004775A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40BDBCB428C228D8004775A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40BDBCBA28C247BB004775A1 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,8 @@
 			children = (
 				40BDBCA328C228D8004775A1 /* AppDelegate.swift */,
 				40BDBCA528C228D8004775A1 /* SceneDelegate.swift */,
-				40BDBCA728C228D8004775A1 /* ViewController.swift */,
+				40BDBCA728C228D8004775A1 /* MapViewController.swift */,
+				40BDBCBA28C247BB004775A1 /* ListViewController.swift */,
 				40BDBCA928C228D8004775A1 /* Main.storyboard */,
 				40BDBCAF28C228D8004775A1 /* Assets.xcassets */,
 				40BDBCB128C228D8004775A1 /* LaunchScreen.storyboard */,
@@ -141,9 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40BDBCA828C228D8004775A1 /* ViewController.swift in Sources */,
+				40BDBCA828C228D8004775A1 /* MapViewController.swift in Sources */,
 				40BDBCA428C228D8004775A1 /* AppDelegate.swift in Sources */,
 				40BDBCAE28C228D8004775A1 /* MapsSample.xcdatamodeld in Sources */,
+				40BDBCBB28C247BB004775A1 /* ListViewController.swift in Sources */,
 				40BDBCA628C228D8004775A1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
