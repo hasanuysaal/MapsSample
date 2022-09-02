@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import CoreData
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate{
     
@@ -15,6 +16,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     @IBOutlet weak var noteTextField: UITextField!
     
     var locationManager = CLLocationManager()
+    
+    var choosedLatitude = Double()
+    var choosedLongitude = Double()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +43,9 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             let locationPress = gR.location(in: mapView)
             let coordinatePress = mapView.convert(locationPress, toCoordinateFrom: mapView)
             
+            choosedLatitude = coordinatePress.latitude
+            choosedLongitude = coordinatePress.longitude
+            
             let annotation = MKPointAnnotation()
             
             annotation.coordinate = coordinatePress
@@ -60,6 +67,31 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         mapView.setRegion(region, animated: true)
         
     }
+    
+    @IBAction func saveBtn(_ sender: Any) {
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let newLocation = NSEntityDescription.insertNewObject(forEntityName: "Location", into: context)
+        
+        newLocation.setValue(nameTextField.text, forKey: "name")
+        newLocation.setValue(noteTextField.text, forKey: "note")
+        newLocation.setValue(choosedLatitude, forKey: "latitude")
+        newLocation.setValue(choosedLongitude, forKey: "longitude")
+        newLocation.setValue(UUID(), forKey: "id")
+        
+        do {
+            try context.save()
+            print("data saved")
+        } catch {
+            print("error")
+        }
+        
+        
+        
+    }
+    
 
 }
 
