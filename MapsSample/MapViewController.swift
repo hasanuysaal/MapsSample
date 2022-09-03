@@ -88,13 +88,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                                             
                                             locationManager.stopUpdatingLocation()
                                             
-                                            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 0.1, longitudinalMeters: 0.1)
+                                            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 0.5, longitudinalMeters: 0.5)
                                             
                                             mapView.setRegion(region, animated: true)
                                             
-                                            
-                                            
-            
                                         }
                                     }
                                 }
@@ -125,9 +122,9 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             annotation.title = nameTextField.text
             annotation.subtitle = noteTextField.text
             mapView.addAnnotation(annotation)
-        
+            
         }
-
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -135,7 +132,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         if receiveName == "" {
             
             let location = CLLocationCoordinate2DMake(locations[0].coordinate.latitude, locations[0].coordinate.longitude)
-
+            
             let region = MKCoordinateRegion(center: location, latitudinalMeters: 0.05, longitudinalMeters: 0.05)
             
             mapView.setRegion(region, animated: true)
@@ -163,10 +160,11 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             print("error")
         }
         
-        
+        NotificationCenter.default.post(name: NSNotification.Name("newLocCreated"), object: nil)
+        navigationController?.popViewController(animated: true)
         
     }
     
-
+    
 }
 
