@@ -88,7 +88,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                                             
                                             locationManager.stopUpdatingLocation()
                                             
-                                            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 0.5, longitudinalMeters: 0.5)
+                                            let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 0.1, longitudinalMeters: 0.1)
                                             
                                             mapView.setRegion(region, animated: true)
                                             
@@ -133,7 +133,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             
             let location = CLLocationCoordinate2DMake(locations[0].coordinate.latitude, locations[0].coordinate.longitude)
             
-            let region = MKCoordinateRegion(center: location, latitudinalMeters: 0.05, longitudinalMeters: 0.05)
+            let region = MKCoordinateRegion(center: location, latitudinalMeters: 0.1, longitudinalMeters: 0.1)
             
             mapView.setRegion(region, animated: true)
             
