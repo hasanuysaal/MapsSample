@@ -165,6 +165,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        
+        let reuseId = "myAnnotation"
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
+        
+        if pinView == nil {
+            
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView?.canShowCallout = true
+            pinView?.tintColor = .red
+
+            let detailButton = UIButton(type: .detailDisclosure)
+            pinView?.rightCalloutAccessoryView = detailButton
+            
+        } else {
+            
+            pinView?.annotation = annotation
+            
+        }
+        
+        return pinView
+        
+    }
+    
     
 }
 
