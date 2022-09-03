@@ -99,7 +99,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             let destinationVC = segue.destination as! MapViewController
             destinationVC.receiveName = sendName
-            destinationVC.recieveId = sendId
+            destinationVC.receiveId = sendId
             
         }
     }

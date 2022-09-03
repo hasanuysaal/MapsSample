@@ -21,7 +21,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     var choosedLongitude = Double()
     
     var receiveName = ""
-    var recieveId: UUID?
+    var receiveId: UUID?
     
     var annotationTitle = ""
     var annotationSubtitle = ""
@@ -45,7 +45,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         if receiveName != "" {
             
-            if let uuidString = recieveId?.uuidString {
+            if let uuidString = receiveId?.uuidString {
                 
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
                 let context = appDelegate.persistentContainer.viewContext
@@ -190,6 +190,32 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         
         return pinView
         
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        if receiveName != "" {
+          
+            let locationCL = CLLocation(latitude: annotationLatitude,longitude: annotationLongitude)
+            
+            CLGeocoder().reverseGeocodeLocation(locationCL) { (placeMarkArr, hata) in
+                if let placemarks = placeMarkArr {
+                    if placemarks.count > 0 {
+                        
+                        let newPlaceMark = MKPlacemark(placemark: placemarks[0])
+                        let item = MKMapItem(placemark: newPlaceMark)
+                        
+                        item.name = self.annotationTitle
+                        
+                        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                        
+                        item.openInMaps(launchOptions: launchOptions)
+                        
+                    }
+                }
+            }
+            
+        } 
     }
     
     
